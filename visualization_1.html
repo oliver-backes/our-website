@@ -5,7 +5,8 @@
 		<meta charset="utf-8">
 		<title>My test page</title>
 		<link rel="stylesheet" media="all" href="styles/style.css"/>
-
+    <link rel="stylesheet" media="all" href="styles/menu.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 </head>
 <body>
@@ -64,25 +65,8 @@
 
 
 <a href="index.html"> Back to Index </a>
-<script scr="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>script>
-<script $(document).ready(function() {
 
-  function toggleSidebar() {
-    $(".button").toggleClass("active");
-    $("main").toggleClass("move-to-left");
-    $(".sidebar-item").toggleClass("active");
-  }
-
-  $(".button").on("click tap", function() {
-    toggleSidebar();
-  });
-
-  $(document).keyup(function(e) {
-    if (e.keyCode === 27) {
-      toggleSidebar();
-    }
-  });
-
-});></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="scripts/menu.js"></script>
 </body>
 </html>
