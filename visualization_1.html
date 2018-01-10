@@ -23,14 +23,66 @@
                 <li> circles of expanding or contracting size demonstrating influence before and after social media endorsement.
 </ul>
 
+<div class="nav-right visible-xs">
+  <div class="button" id="btn">
+    <div class="bar top"></div>
+    <div class="bar middle"></div>
+    <div class="bar bottom"></div>
+  </div>
+</div>
+<!-- nav-right -->
+<main>
 
+
+  <nav>
+    <div class="nav-right hidden-xs">
+      <div class="button" id="btn">
+        <div class="bar top"></div>
+        <div class="bar middle"></div>
+        <div class="bar bottom"></div>
+      </div>
+    </div>
+    <!-- nav-right -->
+  </nav>
+
+  <a href="styles/menu.css" class="ua" target="_blank">
+    <i class="fa fa-user"></i>
+  </a>
+</main>
+
+<div class="sidebar">
+  <ul class="sidebar-list">
+    <li class="sidebar-item"><a href="#" class="sidebar-anchor">Item 1</a></li>
+    <li class="sidebar-item"><a href="#" class="sidebar-anchor">Item 2</a></li>
+    <li class="sidebar-item"><a href="#" class="sidebar-anchor">Item 3</a></li>
+    <li class="sidebar-item"><a href="#" class="sidebar-anchor">Item 4</a></li>
+  </ul>
+</div>
 
 
 
 
 
 <a href="index.html"> Back to Index </a>
+<script scr="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>script>
+<script $(document).ready(function() {
 
-<script src="scripts/script.js"></script>
+  function toggleSidebar() {
+    $(".button").toggleClass("active");
+    $("main").toggleClass("move-to-left");
+    $(".sidebar-item").toggleClass("active");
+  }
+
+  $(".button").on("click tap", function() {
+    toggleSidebar();
+  });
+
+  $(document).keyup(function(e) {
+    if (e.keyCode === 27) {
+      toggleSidebar();
+    }
+  });
+
+});></script>
 </body>
 </html>
