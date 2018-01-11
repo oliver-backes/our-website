@@ -16,7 +16,7 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+	vertical-align: right;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -58,5 +58,18 @@ body {
 	font-family: Arial,sans-serif;
 }
 h1 {
-	color: #21a97e;
+	color: #FFf;
+	font-size: 50px;
+	font-family: Arial,sans-serif;
 }
+ 
+ h2 {
+ 	color: #FFf;
+ 	font-size: 40px;
+	font-family: Arial,sans-serif;
+ }
+
+ h3 {color: #FFf;
+ 	font-size: 30px;
+	font-family: Arial,sans-serif;
+ }
