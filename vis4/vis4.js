@@ -89,7 +89,7 @@ d3.csv("vis4/vis4.csv", function(err, data) {
   
   var graticule = d3.geo.graticule();
   
-  var svg = d3.select("#canvas-svg").append("svg")
+  var svg = d3.select("#googletrendsmap").append("svg")
       .attr("width", width)
       .attr("height", height);
   
