@@ -70,12 +70,13 @@ d3.tsv("vis5/gallupdata.tsv", type, function(error, data) {
       .attr("class", "label")
       .style("font", "10px sans-serif")
       .text(function(d) { return d.id; });
-  
+ 
   legend = svg.append("g")
     .attr("class","legend")
     .attr("transform","translate(50,30)")
     .style("font-size","12px")
     .call(d3.legend)
+
 });
 
 
