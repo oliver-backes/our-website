@@ -1,7 +1,18 @@
+
+var valueHash = {'2016-2018':{}, 'jan-mar2016':{}, 'apr-jun2016':{}, 'jul-sep2016':{},
+    'oct-dec2016':{}, 'jan-mar2017':{}, 'apr-jun2017':{}, 'jul-sep2017':{},
+    'oct-dec2017':{}};
+var countries;
+var mapG;
+var path;
+var svg;
+var quantize;
+var colors = [];
+
 d3.csv("vis4/vis4.csv", function(err, data) {
   var config = {"data0":"Country (or dependent territory)","data1":"Population",
               "label0":"label 0","label1":"label 1","color0":"#99ccff","color1":"#0050A1",
-              "width":960,"height":960}
+              "width":960,"height":960};
   
   var width = config.width,
       height = config.height;
@@ -43,18 +54,6 @@ d3.csv("vis4/vis4.csv", function(err, data) {
       } : null;
   }
   
-  function valueFormat(d) {
-    if (d > 1000000000) {
-      return Math.round(d / 1000000000 * 10) / 10 + "B";
-    } else if (d > 1000000) {
-      return Math.round(d / 1000000 * 10) / 10 + "M";
-    } else if (d > 1000) {
-      return Math.round(d / 1000 * 10) / 10 + "K";
-    } else {
-      return d;
-    }
-  }
-  
   var COLOR_FIRST = config.color0, COLOR_LAST = config.color1;
   
   var rgb = hexToRgb(COLOR_FIRST);
@@ -66,8 +65,6 @@ d3.csv("vis4/vis4.csv", function(err, data) {
   
   var startColors = COLOR_START.getColors(),
       endColors = COLOR_END.getColors();
-  
-  var colors = [];
   
   for (var i = 0; i < COLOR_COUNTS; i++) {
     var r = Interpolate(startColors.r, endColors.r, COLOR_COUNTS, i);
@@ -84,12 +81,12 @@ d3.csv("vis4/vis4.csv", function(err, data) {
       .translate([width / 2, height / 2])
       .precision(.1);
   
-  var path = d3.geo.path()
+  path = d3.geo.path()
       .projection(projection);
   
   var graticule = d3.geo.graticule();
   
-  var svg = d3.select("#canvas-svg").append("svg")
+  svg = d3.select("#canvas-svg").append("svg")
       .attr("width", width)
       .attr("height", height);
   
@@ -98,17 +95,17 @@ d3.csv("vis4/vis4.csv", function(err, data) {
       .attr("class", "graticule")
       .attr("d", path);
   
-  var valueHash = {};
-  
   function log10(val) {
     return Math.log(val);
   }
   
   data.forEach(function(d) {
-    valueHash[d[MAP_KEY]] = +d[MAP_VALUE];
+    valueHash[d.Date][d[MAP_KEY]] = +d[MAP_VALUE];
   });
+
+  console.log(valueHash);
   
-  var quantize = d3.scale.quantize()
+  quantize = d3.scale.quantize()
       .domain([0, 1.0])
       .range(d3.range(COLOR_COUNTS).map(function(i) { return i }));
   
@@ -118,75 +115,22 @@ d3.csv("vis4/vis4.csv", function(err, data) {
       return (+d[MAP_VALUE]) })]);
   
   d3.json("https://s3-us-west-2.amazonaws.com/vida-public/geo/world-topo-min.json", function(error, world) {
-    var countries = topojson.feature(world, world.objects.countries).features;
-  
+    countries = topojson.feature(world, world.objects.countries).features;
     svg.append("path")
        .datum(graticule)
        .attr("class", "choropleth")
        .attr("d", path);
   
-    var g = svg.append("g");
+    mapG = svg.append("g");
+
+    drawChart();
   
-    g.append("path")
+    mapG.append("path")
      .datum({type: "LineString", coordinates: [[-180, 0], [-90, 0], [0, 0], [90, 0], [180, 0]]})
      .attr("class", "equator")
      .attr("d", path);
-  
-    var country = g.selectAll(".country").data(countries);
-  
-    country.enter().insert("path")
-        .attr("class", "country")
-        .attr("d", path)
-        .attr("id", function(d,i) { return d.id; })
-        .attr("title", function(d) { return d.properties.name; })
-        .style("fill", function(d) {
-          if (valueHash[d.properties.name]) {
-            var c = quantize((valueHash[d.properties.name]));
-            var color = colors[c].getColors();
-            return "rgb(" + color.r + "," + color.g +
-                "," + color.b + ")";
-          } else {
-            return "#ccc";
-          }
-        })
-        .on("mousemove", function(d) {
-            var html = "";
-  
-            html += "<div class=\"tooltip_kv\">";
-            html += "<span class=\"tooltip_key\">";
-            html += d.properties.name;
-            html += "</span>";
-            html += "<span class=\"tooltip_value\">";
-            html += (valueHash[d.properties.name] ? valueFormat(valueHash[d.properties.name]) : "");
-            html += "";
-            html += "</span>";
-            html += "</div>";
-            
-            $("#tooltip-container").html(html);
-            $(this).attr("fill-opacity", "0.8");
-            $("#tooltip-container").show();
-            
-            var coordinates = d3.mouse(this);
-            
-            var map_width = $('.choropleth')[0].getBoundingClientRect().width;
-            
-            if (d3.event.pageX < map_width / 2) {
-              d3.select("#tooltip-container")
-                .style("top", (d3.event.layerY + 15) + "px")
-                .style("left", (d3.event.layerX + 15) + "px");
-            } else {
-              var tooltip_width = $("#tooltip-container").width();
-              d3.select("#tooltip-container")
-                .style("top", (d3.event.layerY + 15) + "px")
-                .style("left", (d3.event.layerX - tooltip_width - 30) + "px");
-            }
-        })
-        .on("mouseout", function() {
-                $(this).attr("fill-opacity", "1.0");
-                $("#tooltip-container").hide();
-            });
     
-    g.append("path")
+    mapG.append("path")
         .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
         .attr("class", "boundary")
         .attr("d", path);
@@ -196,3 +140,91 @@ d3.csv("vis4/vis4.csv", function(err, data) {
   
   d3.select(self.frameElement).style("height", (height * 2.3 / 3) + "px");
 });
+
+function valueFormat(d) {
+    if (d > 1000000000) {
+        return Math.round(d / 1000000000 * 10) / 10 + "B";
+    } else if (d > 1000000) {
+        return Math.round(d / 1000000 * 10) / 10 + "M";
+    } else if (d > 1000) {
+        return Math.round(d / 1000 * 10) / 10 + "K";
+    } else {
+        return d;
+    }
+}
+
+function drawChart() {
+    console.log('working');
+
+    var selectedDate = $('#date-selector').val();
+    countries.forEach(function(d) {
+        d.date = selectedDate;
+       if (valueHash[selectedDate][d.properties.name]) {
+           d.value = valueHash[selectedDate][d.properties.name];
+       } else {
+            d.value = null;
+       }
+    });
+
+    console.log(countries);
+
+    var country = mapG.selectAll(".country").data(countries)
+
+    country.exit().remove();
+    country.enter().append("path")
+        .attr("class", "country")
+        .attr("d", path)
+        .attr("id", function(d,i) { return d.id; })
+        .attr("title", function(d) { return d.properties.name; })
+        .on("mousemove", function(d) {
+            var html = "";
+
+            html += "<div class=\"tooltip_kv\">";
+            html += "<span class=\"tooltip_key\">";
+            html += d.properties.name;
+            html += "</span>";
+            html += "<span class=\"tooltip_value\">";
+            html += (d.value ? valueFormat(d.value) : "");
+            html += "";
+            html += "</span>";
+            html += "</div>";
+
+            $("#tooltip-container").html(html);
+            $(this).attr("fill-opacity", "0.8");
+            $("#tooltip-container").show();
+
+            var coordinates = d3.mouse(this);
+
+            var map_width = $('.choropleth')[0].getBoundingClientRect().width;
+
+            if (d3.event.pageX < map_width / 2) {
+                d3.select("#tooltip-container")
+                    .style("top", (d3.event.layerY + 15) + "px")
+                    .style("left", (d3.event.layerX + 15) + "px");
+            } else {
+                var tooltip_width = $("#tooltip-container").width();
+                d3.select("#tooltip-container")
+                    .style("top", (d3.event.layerY + 15) + "px")
+                    .style("left", (d3.event.layerX - tooltip_width - 30) + "px");
+            }
+        })
+        .on("mouseout", function() {
+            $(this).attr("fill-opacity", "1.0");
+            $("#tooltip-container").hide();
+        });
+
+    country.transition()
+        .duration(500)
+        .attr("fill", function(d) {
+          if (d.value != null) {
+            var c = quantize(d.value);
+            console.log(d.properties.name, c);
+            var color = colors[c].getColors();
+            return "rgb(" + color.r + "," + color.g +
+                "," + color.b + ")";
+          } else {
+            return "#ccc";
+          }
+        });
+
+}
