@@ -11,7 +11,7 @@ main {
   z-index: 2;
   position: relative;
   height: 100%;
-  background-color: #2D3142;
+  background-color: white;
   -webkit-transition: transform .7s ease-in-out;
   -moz-transition: transform .7s ease-in-out;
   -ms-transition: transform .7s ease-in-out;
@@ -31,10 +31,10 @@ main {
 
 .bar {
   display: block;
-  height: 5px;
+  height: 10px;
   width: 50px;
-  background-color: #EF8354;
-  margin: 10px auto;
+  background-color: #2D3142;
+  margin: 20px auto;
 }
 
 .button {
