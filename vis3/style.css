@@ -41,7 +41,7 @@ h1 {
 }
 
 p {
-  font-size: 12px;
+  font-size: 10px;
   font-family: 'Arimo', sans-serif;
   line-height: 2;
   letter-spacing: 1px;
@@ -114,17 +114,16 @@ body,
 
 .wedge {
   stroke: #aaa;
-  stroke-width: 1px;
+  stroke-width: 2px;
   /*shape-rendering: crispEdges;*/
 }
 
-#canvas-svg {
-}
 .land {
   fill: #222;
 }
 
 .label {
+  font-family: 'Arimo', sans-serif;
   font-size: 8px;
 }
 
