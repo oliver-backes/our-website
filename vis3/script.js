@@ -320,7 +320,7 @@ Chart.legend = function( entries ) {
 
 		d3.selectAll('.wedge')
 			.transition()
-				.duration( 500 )
+				.duration( 1000 )
 				.attr('opacity', 1 );
 
 	}; // end FUNCTION mouseout()
