@@ -161,7 +161,7 @@ Chart.rose = function() {
 					{
 						'index': i,
 						'angle': d.angle,
-						'radius': d3.max( d.radius.concat( [23] ) )
+						'radius': d3.max( d.radius.concat( [10] ) )
 					}
 				];
 			} )
@@ -185,10 +185,6 @@ Chart.rose = function() {
 			} )
 		  .enter().append('svg:text')
 	   		.attr('class', 'label')
-	   		.attr('text-anchor', 'start')
-	   		.attr('x', 5)
-	   		.attr('dy', '-.71em')
-	   		.attr('text-align', 'center')
 	  		.append('textPath')
 	  			.attr('xlink:href', function(d,i) { 
 	  				return '#label-path' + (d.index + numLabels);
@@ -196,13 +192,6 @@ Chart.rose = function() {
 	  			.text( function(d) { return d.label; } );
 
 	}; // end FUNCTION createWedges()	
-
-	// Set/Get: margin
-	chart.margin = function( _ ) {
-		if (!arguments.length) return margin;
-		margin = _;
-		return chart;
-	};
 
 	// Set/Get: width
 	chart.width = function( _ ) {
@@ -229,13 +218,6 @@ Chart.rose = function() {
 	chart.angle = function( _ ) {
 		if (!arguments.length) return angle;
 		angle = _;
-		return chart;
-	};
-
-	// Set/Get: label
-	chart.label = function( _ ) {
-		if (!arguments.length) return label;
-		label = _;
 		return chart;
 	};
 
