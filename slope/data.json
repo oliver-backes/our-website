@@ -20,16 +20,19 @@
   {
     "Mostly True": 285,
     "Mixture of True and False": 614,
+    "Mostly False": 0,
     "country": "ABC News Politics (Mainstream)"
   },
   {
     "Mostly True": 1174,
     "Mixture of True and False": 1828,
+    "Mostly False": 0,
     "country": "CNN Politics (Mainstream)"
   },
   {
     "Mostly True": 1154,
     "Mixture of True and False": 29179,
+    "Mostly False": 0,
     "country": "Politico (Mainstream)"
   },
   {
