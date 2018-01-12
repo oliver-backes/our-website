@@ -6,6 +6,7 @@
     <title>Tweet Tweet!</title>
     <link rel="stylesheet" media="all" href="styles/style.css"/>
     <link rel="stylesheet" media="all" href="menu-data/menu.css"/>
+    <link rel="icon" href="about_us.png">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 </head>
@@ -32,11 +33,11 @@
 
 
 <svg width="960" height="500"></svg>
-<script src="//d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
 
 </style>
 <body>
-<script src="//d3js.org/d3.v2.js"></script>
+<script src="https://d3js.org/d3.v2.js"></script>
 
 
 <div class="chart">
@@ -178,7 +179,7 @@ var graph = d3.csv(csvpath, function(data) {
       d3.select(this)
       .classed("hover", true)
       .attr("stroke", strokecolor)
-      .attr("stroke-width", "0.5px"), 
+      .attr("stroke-width", "1px"), 
       tooltip.html( "<p>" + d.key + "<br>" + pro + "</p>" ).style("visibility", "visible");
       
     })
