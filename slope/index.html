@@ -16,7 +16,7 @@
 
     <header>
         <h1>Fake News on Facebook</h1> 
-        <p>Why do Facebook pages publish fake news? Are users more likely to engage with false stories than with accurate stories?</p>
+        <p>Are users more likely to engage with false stories than with accurate stories?</p>
 
         <nav id='filter'></nav>
         <nav id='nav-alt'></nav>
@@ -85,8 +85,6 @@
                     d3.select(this).style('opacity', 1);
                     // push key into array
                     state.keys.push(d);
-                    // ensure array is kept in date order
-                    state.keys = _.sortBy(state.keys);
                     // render chart with new keys
                     render(data, state.keys);
                 // ensure there at least two values
