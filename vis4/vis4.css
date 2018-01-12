@@ -1,8 +1,11 @@
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+body, p, {
+  font-family: "Source Code Pro", Consolas, monaco, monospace;;
   width: 960px;
   height: 500px;
   position: relative;
+}
+h1 {
+  font-family: "Source Code Pro", Consolas, monaco, monospace;;
 }
 #canvas {
 }
@@ -30,3 +33,4 @@ body {
 .tooltip_value {
   margin-left: 20px;
   float: right;
+
