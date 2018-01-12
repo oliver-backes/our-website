@@ -4,9 +4,8 @@
 <head>
     <meta charset='UTF-8'>
     <title>Fake News on Facebook</title> 
-    <meta name="author" content="Sundar Singh | eesur.com">
     
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="vis2/main.css">
     <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js" charset="utf-8"></script>
 </head>
@@ -28,7 +27,7 @@
 <!-- namespace -->
 <script> d3.eesur = {}; </script>
 <!-- reusable slopegraph -->
-<script src="d3_code_slopegraph_v2.js"></script>
+<script src="vis2/d3_code_slopegraph_v2.js"></script>
 
 <script>
 //  render slopegraph chart
@@ -54,7 +53,7 @@
         highlight: null
     };
 
-    d3.json('data.json', function(error, json) {
+    d3.json('vis2/data.json', function(error, json) {
         if (error) throw error;
         // access data outside this callback
         data = json;
