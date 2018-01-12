@@ -1,20 +1,8 @@
-/**
-*
-*
-*
-*	NOTES:
-*		[1] Slider could be improved. No displayed limits. Values are hidden. Etc.
-*		[2] This chart's API is restricted and makes assumptions. E.g., legend entries provided to 'rose' and 'legend' are the same.
-*
-*
-*
+/*
 *	@author Kristofer Gryte. http://www.kgryte.com
 *
 *
 */
-
-
-
 
 var Chart = {};
 
@@ -76,7 +64,6 @@ Chart.rose = function() {
 		});
 
 		// Now convert the area values to radii:
-		// http://understandinguncertainty.org/node/214 
 		return data.map( function(d, i) {
 			return {
 				'angle': d.angle,
@@ -294,7 +281,7 @@ Chart.legend = function( entries ) {
 	// Add a legend:
 	var legend = {}, 
 		height,
-		symbolRadius = 5;
+		symbolRadius = 10;
 
 	legend.container = d3.select('body').append('div')
 		.attr('class', 'legend');
@@ -368,7 +355,7 @@ Chart.slider = function( minVal, maxVal, step ) {
 		.attr('min', minVal)
 		.attr('max', maxVal)
 		.attr('step', 0.001)
-		.attr('value', maxVal);
+		.attr('value', minVal);
 
 	d3.select("input").on("change", function() {
 	  var value = Math.round(this.value);

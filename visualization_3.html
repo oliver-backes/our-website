@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Changing Fake News Incidence rates during the 2016 US Presidential Elections</title>
+<head>
+	<title>Fake News Incidence Rates During the 2016 US Presidential Elections</title>
+	<link rel="icon" href="about_us.png">
+	<meta charset="utf-8">
+		
 		<!-- Stylesheets -->
 		<link href='http://fonts.googleapis.com/css?family=Cabin:500' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="vis3/reset.css">
-		<link rel="stylesheet" type="text/css" href="vis3/test.css">
+		<link rel="stylesheet" type="text/css" href="vis3/style.css">
 		<!-- Libraries -->
 		<script type="text/javascript" src="vis3/d3.min.js"></script>
 		<!-- Scripts -->
@@ -23,24 +25,13 @@
 <!-- nav-right -->
 <main style="height: 100px;">
 
-		<!--<h1>Nightingale's Rose</h1>-->
-
-		<!-- Inspiration:
-			http://mbostock.github.io/protovis/ex/crimea-rose.html
-			http://understandinguncertainty.org/node/213
-		-->		
-		
+	<div> <br><h1>Fake News Incidence Rates During the 2016 US Presidential Elections</h1> </div>
+			
 		<script type="text/javascript">
 			var rose = Chart.rose(),
 				height = 600,
 				causes = ['Anti_Clinton', 'Pro_Clinton', 'Anti_Trump', 'Pro_Trump'],
 				labels = ['27-Oct', '28-Oct', '29-Oct', '30-Oct', '31-Oct', '01-Nov', '02-Nov', '03-Nov', '04-Nov', '05-Nov', '06-Nov', '07-Nov'];
-
-			// Add a title:
-			d3.select('body').append('h2')
-				.attr('class', 'title')
-				.html( 'Changing Fake News Incidence rates during the 2016 US Presidential Elections');
-
 
 			// Load the JSON data:
 			d3.json( 'vis3/data2.json', function( data ) {
@@ -107,6 +98,11 @@
 			});	
 
 		</script>
+
+<div><br><p> Analysis of fake news stories in the immediate lead up to the 2016 US election demonstrate that 61% of stories directed at the Campaigns painted the Clinton Campaign in a negative light.  Based on text and metadata scraped from 244 websites tagged as "BS" by the <a href="https://www.kaggle.com/mrisdal/fake-news">BS Detector Chrome Extension</a>, 405 fake news stories were directly targeted at the two Campaigns from 27 October to 7 November.  The slider for the visualization shows the day-by-day break down of these stories and hovering the mouse over the legend shows the day-to-day pattern by category.  The 27 October was the significant day, with the most stories negatively directed at both Campaigns.</p>
+
+</div>
+
 <nav>
     <div class="nav-right hidden-xs">
       <div class="button" id="btn">
