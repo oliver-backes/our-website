@@ -50,7 +50,6 @@ chart("vis1/data.csv", "orange");
 var datearray = [];
 var colorrange = [];
 
-
 function chart(csvpath, color) {
 
 if (color == "blue") {
@@ -180,7 +179,7 @@ var graph = d3.csv(csvpath, function(data) {
       .classed("hover", true)
       .attr("stroke", strokecolor)
       .attr("stroke-width", "1px"), 
-      tooltip.html( "<p>" + d.key + "<br>" + pro + "</p>" ).style("visibility", "visible");
+      tooltip.html( '<img src="about_us.png" style="width:80px; height:80px;" />' ).style("visibility", "visible");
       
     })
     .on("mouseout", function(d, i) {
@@ -190,20 +189,20 @@ var graph = d3.csv(csvpath, function(data) {
       .attr("opacity", "1");
       d3.select(this)
       .classed("hover", false)
-      .attr("stroke-width", "0px"), tooltip.html( "<p>" + d.key + "<br>" + pro + "</p>" ).style("visibility", "hidden");
+      .attr("stroke-width", "0px"), tooltip.html( '<img src="about_us.png" />').style("visibility", "hidden");
   })
     
   var vertical = d3.select(".chart")
         .append("div")
         .attr("class", "remove")
         .style("position", "absolute")
-        .style("z-index", "19")
+        .style("z-index", "10")
         .style("width", "1px")
-        .style("height", "380px")
-        .style("top", "10px")
-        .style("bottom", "30px")
+        .style("height", "875px")
+        .style("top", "20px")
+        .style("bottom", "10px")
         .style("left", "0px")
-        .style("background", "#fff");
+        .style("background", "#000");
 
   d3.select(".chart")
       .on("mousemove", function(){  
