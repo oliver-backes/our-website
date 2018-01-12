@@ -1,10 +1,140 @@
-+<!DOCTYPE html>
-+<html>
-+<head>
-+	<title>The changing use of 'fake news' against candidates in the 2016 US Presidential elections</title>
-+</head>
-+<body>
-+<p>Using data from analysis by Kaggle.com users, this page will use a Nightingale Rose chart to illustrate how fake news targeted at the Clinton and Trump campaigns changed over the course of the election.</p>
-<a href="https://upload.wikimedia.org/wikipedia/commons/1/17/Nightingale-mortality.jpg">  Example of a Nightingale Rose Chart</a>
-+</body>
-+</html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fake News Incidence Rates During the 2016 US Presidential Elections</title>
+	<link rel="icon" href="about_us.png">
+	<meta charset="utf-8">
+		
+		<!-- Stylesheets -->
+		<link href='http://fonts.googleapis.com/css?family=Cabin:500' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="vis3/reset.css">
+		<link rel="stylesheet" type="text/css" href="vis3/style.css">
+		<!-- Libraries -->
+		<script type="text/javascript" src="vis3/d3.min.js"></script>
+		<!-- Scripts -->
+		<script type="text/javascript" src="vis3/script.js"></script>
+	</head>
+	<body>	
+<div class="nav-right visible-xs">
+  <div class="button" id="btn">
+    <div class="bar top"></div>
+    <div class="bar middle"></div>
+    <div class="bar bottom"></div>
+  </div>
+</div>
+<!-- nav-right -->
+<main style="height: 100px;">
+
+	<div> <br><h1>Fake News Incidence Rates During the 2016 US Presidential Elections</h1> </div>
+			
+		<script type="text/javascript">
+			var rose = Chart.rose(),
+				height = 600,
+				causes = ['Anti_Clinton', 'Pro_Clinton', 'Anti_Trump', 'Pro_Trump'],
+				labels = ['27-Oct', '28-Oct', '29-Oct', '30-Oct', '31-Oct', '01-Nov', '02-Nov', '03-Nov', '04-Nov', '05-Nov', '06-Nov', '07-Nov'];
+
+			// Load the JSON data:
+			d3.json( 'vis3/data2.json', function( data ) {
+				// Data from: http://ocp.hul.harvard.edu/dl/contagion/010164675
+
+				// Format the date and rework the data:
+				var scalar;
+				data.forEach( function(d) { 
+					
+					d.label = d.date;
+					// Calculate the average annual mortality, as done by Nightingale:
+					// http://understandinguncertainty.org/node/214 
+					scalar = 1;
+					d.Anti_Clinton = d.Anti_Clinton * scalar;
+					d.Pro_Clinton = d.Pro_Clinton * scalar;
+					d.Anti_Trump = d.Anti_Trump * scalar;
+					d.Pro_Trump = d.Pro_Trump * scalar;
+				} );
+
+				console.log(data);
+
+				// Get the maximum value:
+				var maxVal = d3.max( data, function(d) {
+					return d3.max( [d.Anti_Clinton, d.Pro_Clinton, d.Anti_Trump, d.Pro_Trump] );
+				});
+
+				// Where the maximum value gives us the maximum radius:
+				var maxRadius = Math.sqrt(maxVal*12 / Math.PI);
+				console.log(maxRadius);
+				
+				// Append a new figure to the DOM:
+				figure = d3.select( 'body' )
+					.append( 'figure' );
+
+				// Get the figure width:
+				width = parseInt( figure.style( 'width' ), 10 );
+
+				// Update the chart generator settings:
+				rose.legend( causes )
+					.width( width )
+					.height( height )
+					.delay( 0 )
+					.duration( 500 )
+					.domain( [0, maxRadius] )
+					.angle( function(d, i) {
+						return i; } )
+					.area( function(d, i) { return [d.Anti_Clinton, d.Pro_Clinton, d.Anti_Trump, d.Pro_Trump]; } );							
+
+				// Bind the data and generate a new chart:
+				figure.datum( data)
+					.attr('class', 'chart figure1')
+					.call( rose );	
+
+				// Update the chart generator settings:
+				rose.width( width )
+					.delay( 3000 );
+
+				// Create a legend:
+				Chart.legend( causes );
+
+				// Create a slider:
+				Chart.slider( 0, data.length, 1 ); // minVal, maxVal, step
+				
+			});	
+
+		</script>
+
+<div><br><p> Analysis of fake news stories in the immediate lead up to the 2016 US election demonstrate that 61% of stories directed at the Campaigns painted the Clinton Campaign in a negative light.  Based on text and metadata scraped from 244 websites tagged as "BS" by the <a href="https://www.kaggle.com/mrisdal/fake-news">BS Detector Chrome Extension</a>, 405 fake news stories were directly targeted at the two Campaigns from 27 October to 7 November.  The slider for the visualization shows the day-by-day break down of these stories and hovering the mouse over the legend shows the day-to-day pattern by category.  The 27 October was the significant day, with the most stories negatively directed at both Campaigns.</p>
+
+</div>
+
+<nav>
+    <div class="nav-right hidden-xs">
+      <div class="button" id="btn">
+        <div class="bar top"></div>
+        <div class="bar middle"></div>
+        <div class="bar bottom"></div>
+      </div>
+    </div>
+    <!-- nav-right -->
+  </nav>
+
+
+    <i class="fa fa-user"></i>
+  </a>
+</main>
+
+<div class="sidebar">
+  <ul class="sidebar-list">
+
+    <li class="sidebar-item"><a href="index.html" class="sidebar-anchor">Home</a></li>
+    <li class="sidebar-item"><a href="visualization_2.html" class="sidebar-anchor">Visualization 1</a></li>
+    <li class="sidebar-item"><a href="visualization_2.html" class="sidebar-anchor">Visualization 2</a></li>
+    <li class="sidebar-item"><a href="visualization_3.html" class="sidebar-anchor">Visualization 3</a></li>
+    <li class="sidebar-item"><a href="visualization_4.html" class="sidebar-anchor">Visualization 4</a></li>
+    <li class="sidebar-item"><a href="visualization_5.html" class="sidebar-anchor">Visualization 5</a></li>
+    <li class="sidebar-item"><a href="about_us.html" class="sidebar-anchor">About US</a></li>
+
+  </ul>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="menu-data/menu.js"></script>
+
+	</body>
+</html>
