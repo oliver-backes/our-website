@@ -1,0 +1,56 @@
+[
+  {
+    "Mostly True": 4173,
+    "Mixture of True and False": 5427,
+    "Mostly False": 6599,
+    "country": "Addicting Info (Left)"
+  },
+  {
+    "Mostly True": 42839,
+    "Mixture of True and False": 57893,
+    "Mostly False": 34883,
+    "country": "Occupy Democrats (Left)"
+  },
+  {
+    "Mostly True": 25611,
+    "Mixture of True and False": 21756,
+    "Mostly False": 39346,
+    "country": "The Other 98% (Left)"
+  },
+  {
+    "Mostly True": 285,
+    "Mixture of True and False": 614,
+    "Mostly False": 0,
+    "country": "ABC News Politics (Mainstream)"
+  },
+  {
+    "Mostly True": 1174,
+    "Mixture of True and False": 1828,
+    "Mostly False": 0,
+    "country": "CNN Politics (Mainstream)"
+  },
+  {
+    "Mostly True": 1154,
+    "Mixture of True and False": 29179,
+    "Mostly False": 0,
+    "country": "Politico (Mainstream)"
+  },
+  {
+    "Mostly True": 630,
+    "Mixture of True and False": 2038,
+    "Mostly False": 2315,
+    "country": "Eagle Rising (Right)"
+  },
+  {
+    "Mostly True": 6715,
+    "Mixture of True and False": 4419,
+    "Mostly False": 8617,
+    "country": "Freedom Daily (Right)"
+  },
+  {
+    "Mostly True": 2561,
+    "Mixture of True and False": 4385,
+    "Mostly False": 6865,
+    "country": "Right Wing News (Right)"
+  }
+]
