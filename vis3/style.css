@@ -21,11 +21,11 @@ body,
 }
 
 figure {
-  position: relative;
-  float: center;
+  position: left;
+  float: left;
   width: 50%;
   min-width: 400px;
-  margin-top: -120px;
+  margin-top: -500px;
 }
 
 h1 {
@@ -41,14 +41,14 @@ h1 {
 }
 
 p {
-  font-size: 12px;
+  font-size: 10px;
   font-family: 'Arimo', sans-serif;
   line-height: 2;
   letter-spacing: 1px;
   color: black;
   width: 50%;
   margin: 0 auto;
-  padding: 0 40px 80px 400px;
+  padding: 0 40px 40px 300px;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Arimo:400,400italic,700,700italic);
@@ -70,41 +70,6 @@ body,
   margin-top: 20px;
 }
 
-  .title .small {
-    font-size: 12px;
-  }
-
-.subtitle {
-  font-size: 16px;
-  width: 50%;
-  min-width: 400px;
-  margin-top: 16px;
-  text-align: center;
-}
-
-  .subtitle.left {
-    float: left;
-  }
-
-  .subtitle.right {
-    float: right;
-  }
-
-.caption {
-  position: relative;
-  top: -170px;
-  width: 320px;
-  display: block;
-  margin: 0 auto;
-  font-style: oblique;
-  font-size: 12px;
-}
-
-.caption p {
-  margin: 0;
-  text-indent: 12px;
-  }
-
 .canvas {
   font-family: 'Arimo', sans-serif;
   font-size: 14px;
@@ -114,18 +79,17 @@ body,
 
 .wedge {
   stroke: #aaa;
-  stroke-width: 1px;
+  stroke-width: 2px;
   /*shape-rendering: crispEdges;*/
 }
 
-#canvas-svg {
-}
 .land {
   fill: #222;
 }
 
 .label {
-  font-size: 8px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 12px;
 }
 
 .Anti_Clinton {
@@ -145,11 +109,11 @@ body,
 }
 
 .legend {
-  width: 900px;
+  width: 400px;
   height: 50px;
   padding: 0px;
   display: block;
-  position: left;
+  position: right;
   margin: 0 auto;
   top: 200px;
   text-align: center;
@@ -160,7 +124,11 @@ body,
   width: 400px;
   display: block;
   position: center;
-  margin: 0 auto;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: relative;
+  margin-top: 0;
 }
 
 
@@ -187,7 +155,7 @@ main {
 
 .sidebar {
   height: 100%;
-  width: 400px;
+  width: 200px;
   position: fixed;
   top: 0;
   z-index: 1;
@@ -217,7 +185,7 @@ main {
 
 .nav-right {
   position: fixed;
-  right: 40px;
+  right: 20px;
   top: 20px;
 }
 

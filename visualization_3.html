@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 		
 		<!-- Stylesheets -->
-		<link href='http://fonts.googleapis.com/css?family=Cabin:500' rel='stylesheet' type='text/css'>
+		<link rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="vis3/reset.css">
 		<link rel="stylesheet" type="text/css" href="vis3/style.css">
 		<!-- Libraries -->
@@ -31,19 +31,17 @@
 			var rose = Chart.rose(),
 				height = 600,
 				causes = ['Anti_Clinton', 'Pro_Clinton', 'Anti_Trump', 'Pro_Trump'],
-				labels = ['27-Oct', '28-Oct', '29-Oct', '30-Oct', '31-Oct', '01-Nov', '02-Nov', '03-Nov', '04-Nov', '05-Nov', '06-Nov', '07-Nov'];
+				labels = ['27-Oct', '28-Oct', '29-Oct', '30-Oct', '31-Oct', '01-Nov', '02-Nov', '03-Nov', '04-Nov', '05-Nov', '06-Nov', '07-Nov']
 
 			// Load the JSON data:
 			d3.json( 'vis3/data2.json', function( data ) {
-				// Data from: http://ocp.hul.harvard.edu/dl/contagion/010164675
 
 				// Format the date and rework the data:
 				var scalar;
 				data.forEach( function(d) { 
 					
 					d.label = d.date;
-					// Calculate the average annual mortality, as done by Nightingale:
-					// http://understandinguncertainty.org/node/214 
+
 					scalar = 1;
 					d.Anti_Clinton = d.Anti_Clinton * scalar;
 					d.Pro_Clinton = d.Pro_Clinton * scalar;
@@ -99,10 +97,6 @@
 
 		</script>
 
-<div><br><p> Analysis of fake news stories in the immediate lead up to the 2016 US election demonstrate that 61% of stories directed at the Campaigns painted the Clinton Campaign in a negative light.  Based on text and metadata scraped from 244 websites tagged as "BS" by the <a href="https://www.kaggle.com/mrisdal/fake-news">BS Detector Chrome Extension</a>, 405 fake news stories were directly targeted at the two Campaigns from 27 October to 7 November.  The slider for the visualization shows the day-by-day break down of these stories and hovering the mouse over the legend shows the day-to-day pattern by category.  The 27 October was the significant day, with the most stories negatively directed at both Campaigns.</p>
-
-</div>
-
 <nav>
     <div class="nav-right hidden-xs">
       <div class="button" id="btn">
@@ -135,6 +129,14 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="menu-data/menu.js"></script>
+
+<div><br><p> Analysis of fake news stories in the immediate lead up to the 2016 US election demonstrate that 61% of stories directed at the Campaigns painted the Clinton Campaign in a negative light.  405 fake news stories were directly targeted at the two Campaigns from 27 October to 7 November.  The slider for the visualization shows the day-by-day break down of these stories. Hovering the mouse over the chart will show the individual values.  Hovering the mouse over the legend shows the day-to-day pattern by category.  The 27 October was the significant day, with the most stories negatively directed at both Campaigns.</p>
+
+</div>
+
+<div><p>Visualization adapted from <a href="https://bl.ocks.org/kgryte"> Kygryte's Nightingale Rose Chart</a>.  Analysis is based on text and metadata scraped from 244 websites by <a href="https://www.kaggle.com/mrisdal/fake-news">Megan Risdal</a> that was tagged as "BS" by the BS Detector Chrome Extension.  
+
+</div>
 
 	</body>
 </html>
