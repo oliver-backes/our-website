@@ -62,6 +62,14 @@ text.s-title {
     font-size: 11px;
 }
 
+svg {
+  padding: 10px 100px;
+}
+
+header {
+  max-width: 800px;
+}
+
 @import url(https://fonts.googleapis.com/css?family=Arimo:400,400italic,700,700italic);
 body,
 html {
