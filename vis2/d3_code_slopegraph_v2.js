@@ -1,7 +1,6 @@
 // *****************************************
 //  reusable multiple slopegraph chart
 // *****************************************
-
 (function() {
     'use strict';
 

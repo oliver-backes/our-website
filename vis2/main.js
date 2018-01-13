@@ -5,7 +5,7 @@
 
     var data,
         // keys values from data to be applied
-        keyValues = ['Mostly True', 'Mixture of True and False', 'Mostly False'];
+        keyValues = ['1 Mostly True', '2 Mixed', '3 Mostly False'];
 
     // store chart
     var slopegraph;
@@ -51,6 +51,8 @@
                     d3.select(this).style('opacity', 1);
                     // push key into array
                     state.keys.push(d);
+                    // ensure array is kept in date order
+                    state.keys = _.sortBy(state.keys);
                     // render chart with new keys
                     render(data, state.keys);
                 // ensure there at least two values
