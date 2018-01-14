@@ -1,15 +1,35 @@
-.axis--x path {
-  display: none;
+#legend {
+	border: 1px solid black;
+	padding: 2px;
+	border-width: 50%;
+	font-family: courier;
+	font-size: 100%;
+}
+
+#header {
+	color: black;
+	font-size: 150%;
+	font-weight: bold;
+}
+
+#subheader {
+	color: black;
+	font-size: 100%;
+	font-weight: bold;
+}
+
+
+#sublegend {
+	color: black;
+	font-size: 75%;
+	font-family: courier;
+}
+.title {
+	color: black;
 }
 
 .line {
   fill: none;
   stroke: steelblue;
   stroke-width: 1.5px;
-}
-
-.legend rect {
-	fill:white;
-	stroke:black;
-	opacity:0.8;
 }

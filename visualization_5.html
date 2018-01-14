@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Fake News and Effects on Public Opinion</title>
+	<title>Trust and Confidence in the Media in the United States</title>
     <link href="vis5/vis5.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" media="all" href="styles/style.css"/>
     <link rel="stylesheet" media="all" href="menu-data/menu.css"/>
@@ -12,8 +12,7 @@
 </head>
 <body>
 
-	<h1>Effect on Trust in Media</h1>
-	<h2>Trends in U.S. Public Opinion</h2>
+	<center><h2>Trust and Confidence in the Media in the United States</h2></center>
 
 <div class="nav-right visible-xs">
   <div class="button" id="btn">
@@ -24,15 +23,16 @@
 </div>
 <!-- nav-right -->
 <main>
-
-	<p>	This page will include a visualization of data from multiple sources (including Gallup and Pew) on the views of Americans towards fake news and overall trends in trust in media in recent years. The data on declining trust in media will be presented through a (hopefully) interactive line chart with time series data extending as far back as is available. Additional points of interest from recent polling regarding views of fake news in America will be presented in variosu visualizations (pie charts, bar graphs etc...) as necessitated by the data. Ideally, these separate snapshots will be accessible via a sidebar, such that a selection made by the end user will change the visualization on screen.</p>
-
-	<svg width="960" height="500"></svg>
+<center>
+<p id="header">Fertile Soil for Fake News:</p><p ide="subheader">Public trust and confidence in the mass media in the United States, 1997 to 2017</p>
+	<svg width="1536" height="800"></svg>
 
 	<script src="//d3js.org/d3.v4.min.js"></script>
 	<script src="vis5/d3legend.js"></script>
 	<script src="vis5/vis5-test.js"></script>
-  
+<p><span id="legend">Legend: Blue - Great Deal; Yellow - Fair Amount; Green - Not Very Much; Red - None At All.</span></p><p id="sublegend">Responses are to the following question: "In general, how much trust and cofidence do you have in the mass media such as newspapers, TV and radio -- when it comes to reporting the news fully, accurately and fairly -- a great deal, a fair amount, not very much or none at all?"<br>Source: <a href="http://news.gallup.com/poll/1663/Media-Use-Evaluation.aspx">Gallup Analytics</a></p>
+</center>
+
 <nav>
     <div class="nav-right hidden-xs">
       <div class="button" id="btn">
