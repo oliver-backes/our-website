@@ -1,0 +1,38 @@
+[
+  {
+    "1 Mostly True": 4173,
+    "2 Mixed": 5427,
+    "3 Mostly False": 6599,
+    "country": "Addicting Info (Left)"
+  },
+  {
+    "1 Mostly True": 42839,
+    "2 Mixed": 57893,
+    "3 Mostly False": 34883,
+    "country": "Occupy Democrats (Left)"
+  },
+  {
+    "1 Mostly True": 25611,
+    "2 Mixed": 21756,
+    "3 Mostly False": 39346,
+    "country": "The Other 98% (Left)"
+  },
+  {
+    "1 Mostly True": 630,
+    "2 Mixed": 2038,
+    "3 Mostly False": 2315,
+    "country": "Eagle Rising (Right)"
+  },
+  {
+    "1 Mostly True": 6715,
+    "2 Mixed": 4419,
+    "3 Mostly False": 8617,
+    "country": "Freedom Daily (Right)"
+  },
+  {
+    "1 Mostly True": 2561,
+    "2 Mixed": 4385,
+    "3 Mostly False": 6865,
+    "country": "Right Wing News (Right)"
+  }
+]
