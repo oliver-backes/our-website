@@ -38,17 +38,26 @@ d3.tsv("vis5/gallupdata.tsv", type, function(error, data) {
 
   g.append("g")
       .attr("class", "axis axis--x")
+      .style("font", "16px sans-serif")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+      .call(d3.axisBottom(x))
+    .append("text")
+      .attr("x", 1350)
+      .attr("dx", "1em")
+      .attr("fill", "#000")
+      .style("font", "16px sans-serif")
+      .text("Year");
 
   g.append("g")
       .attr("class", "axis axis--y")
+      .style("font", "16px sans-serif")
       .call(d3.axisLeft(y))
     .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
-      .attr("dy", "0.71em")
+      .attr("dy", "1em")
       .attr("fill", "#000")
+      .style("font", "16px sans-serif")
       .text("Percentage of Respondents");
 
   var city = g.selectAll(".city")
@@ -60,22 +69,30 @@ d3.tsv("vis5/gallupdata.tsv", type, function(error, data) {
       .attr("class", "line")
       .attr("d", function(d) { return line(d.values); })
       .attr("data-legend",function(d) { return d.name})
-      .style("stroke", function(d) { return z(d.id); });
+      .style("stroke", function(d) { return z(d.id); })
+      .style("stroke-width", "5px");
 
   city.append("text")
       .datum(function(d) { return {id: d.id, value: d.values[d.values.length - 1]}; })
       .attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.temperature) + ")"; })
-      .attr("x", 0)
+      .attr("x", 10)
       .attr("dy", "0.35em")
       .attr("class", "label")
-      .style("font", "10px sans-serif")
+      .style("font", "12px sans-serif")
       .text(function(d) { return d.id; });
- 
+
   legend = svg.append("g")
     .attr("class","legend")
     .attr("transform","translate(50,30)")
     .style("font-size","12px")
     .call(d3.legend)
+
+  setTimeout(function() { 
+    legend
+      .style("font-size","20px")
+      .attr("data-style-padding",10)
+      .call(d3.legend)
+  },1000)
 
 });
 
@@ -86,8 +103,4 @@ function type(d, _, columns) {
   return d;
 }
 
-legend = svg.append("g")
-  .attr("class","legend")
-  .attr("transform","translate(50,30)")
-  .style("font-size","12px")
-  .call(d3.legend)
+
