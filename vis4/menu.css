@@ -9,9 +9,9 @@ html {
 
 main {
   z-index: 2;
-  position: relative;
+  position: absolute;
   height: 100%;
-  background-color: #2D3142;
+  background-color: white;
   -webkit-transition: transform .7s ease-in-out;
   -moz-transition: transform .7s ease-in-out;
   -ms-transition: transform .7s ease-in-out;
@@ -21,7 +21,7 @@ main {
 
 .sidebar {
   height: 100%;
-  width: 400px;
+  width: 200px;
   position: fixed;
   top: 0;
   z-index: 1;
