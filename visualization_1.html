@@ -32,11 +32,11 @@
 </style>
 
 
-<svg width="960" height="500"></svg>
+<svg width="960" height="250"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 </style>
-<body>
+
 <script src="https://d3js.org/d3.v2.js"></script>
 
 
@@ -70,7 +70,7 @@ var tooltip = d3.select("body")
     .style("position", "absolute")
     .style("z-index", "20")
     .style("visibility", "hidden")
-    .style("top", "500px")
+    .style("top", "250px")
     .style("left", "55px");
 
 var x = d3.time.scale()
@@ -142,6 +142,8 @@ var graph = d3.csv(csvpath, function(data) {
       .attr("class", "y axis")
       .attr("transform", "translate(" + width + ", 0)")
       .call(yAxis.orient("right"));
+  
+  svg.append("text")
 
   svg.append("g")
       .attr("class", "y axis")
@@ -174,7 +176,7 @@ var graph = d3.csv(csvpath, function(data) {
       .classed("hover", true)
       .attr("stroke", strokecolor)
       .attr("stroke-width", "1px"), 
-      tooltip.html( '<img src="tweets.jpg" style="width:1100x; height:300px;" />' ).style("visibility", "visible");
+      tooltip.html( '<img src="tweets.jpg" style="width:1100x; height:250px;" />' ).style("visibility", "visible");
       
     })
     .on("mouseout", function(d, i) {
@@ -193,9 +195,9 @@ var graph = d3.csv(csvpath, function(data) {
         .style("position", "absolute")
         .style("z-index", "10")
         .style("width", "1px")
-        .style("height", "500px")
-        .style("top", "500px")
-        .style("bottom", "30px")
+        .style("height", "450x")
+        .style("top", "300px")
+        .style("bottom", "925px")
         .style("left", "0px")
         .style("background", "#000");
 
@@ -227,7 +229,10 @@ var graph = d3.csv(csvpath, function(data) {
   <a href="styles/menu.css" class="ua" target="_blank">
     <i class="fa fa-user"></i>
   </a>
-  <p>          This visualisation shows the impact of President Trump tweeting about a story and how it relates to increased corresponding coverage in US mainstream media. For this project, three subjects that could be categorized as "fake news" were selected and coverage levels (using the mediacloud mainstrain US news database) were analyzed using the 30 days before and after a presidential tweet. For ease ov viewing, an arbitrary 60 day period was selected on the visualization to standardize the time frame. The tweet occurs approsimately halfway through the 60 day period in all cases. By hovering over the graphic, the selected tweets and thier date of publication will occur. The three subject areas covered wer: The "Deep State", The Clinton sale of Uranium to Russia, and The Obama Administration's alleged wiretapping of Trump Tower.</p>
+  <span style="color: black">Legend:</span><span style="background-color: #E74C3C"> Uranium One </span><span style="color: black; background-color: #3498DB"> The "Deep State" </span><span style="background-color: #229954"> Wiretapping </span><br>
+  
+  <p1> This visualisation shows the impact of President Trump tweeting about a story and how it relates to increased corresponding coverage in US mainstream media.</p1>
+    <p2>For this project, three subjects that could be categorized as "fake news" were selected and coverage levels (using the mediacloud mainstrain US news database) were analyzed using the 30 days before and after a presidential tweet. For ease ov viewing, an arbitrary 60 day period was selected on the visualization to standardize the time frame. The tweet occurs approsimately halfway through the 60 day period in all cases. By hovering over the graphic, the selected tweets and thier date of publication will occur. The three subject areas covered wer: The "Deep State", The Clinton sale of Uranium to Russia, and The Obama Administration's alleged wiretapping of Trump Tower.</p2>
 </main>
 
 <div class="sidebar">
