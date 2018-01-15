@@ -1,0 +1,8 @@
+Burn down chart since 11 January after Scrum Poker. 
+Scores are cumulative for our team per day.
+
+11 Jan: 12 points
+12 Jan: 20 points
+13 Jan: 12 points
+14 Jan: 13 points
+15 Jan: 11 points (mostly troubleshooting points which we didn't not include in Trello as we were unable to allocate points as a group).
