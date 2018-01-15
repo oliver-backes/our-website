@@ -105,7 +105,7 @@ main {
 }
 
 .move-to-left {
-  -webkit-transform: translateX(-40px);
+  -webkit-transform: translateX(-400px);
   -moz-transform: translateX(-40px);
   -ms-transform: translateX(-40px);
   -o-transform: translateX(-40px);
