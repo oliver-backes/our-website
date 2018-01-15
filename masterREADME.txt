@@ -6,7 +6,7 @@ This is the master README for team B3's final project. Below I will include a ru
 Trello Board/User Stories: https://trello.com/b/G8el0ROH/b3-fake-news
 
 
-Burndown Chart:
+Burndown Chart: See burndown.txt file.
 
 
 Collaboration in Github: The bulk of our commenting on other's code and/or assistance in fixing bugs etc... happened in person or via Slack. We all sought to make substantive changes to the site in separate feature branches and then merge those changes back in to the master branch. Commits and pull requests include documentation of the changes made. 
