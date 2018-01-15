@@ -1,15 +1,22 @@
+#my {
+	zoom: 60%;
+}
+
 #legend {
 	border: 1px solid black;
 	padding: 2px;
 	border-width: 50%;
 	font-family: courier;
 	font-size: 100%;
+	color: white;
+	font-weight: bold;
 }
 
 #header {
 	color: black;
 	font-size: 150%;
 	font-weight: bold;
+	line-height: 100%;
 }
 
 #subheader {

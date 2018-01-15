@@ -72,15 +72,6 @@ d3.tsv("vis5/gallupdata.tsv", type, function(error, data) {
       .style("stroke", function(d) { return z(d.id); })
       .style("stroke-width", "5px");
 
-  city.append("text")
-      .datum(function(d) { return {id: d.id, value: d.values[d.values.length - 1]}; })
-      .attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.temperature) + ")"; })
-      .attr("x", 10)
-      .attr("dy", "0.35em")
-      .attr("class", "label")
-      .style("font", "12px sans-serif")
-      .text(function(d) { return d.id; });
-
   legend = svg.append("g")
     .attr("class","legend")
     .attr("transform","translate(50,30)")
