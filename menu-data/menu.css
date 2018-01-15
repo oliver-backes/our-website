@@ -9,7 +9,7 @@ html {
 
 main {
   z-index: 2;
-  position: relative;
+  position: absolute;
   height: 100%;
   background-color: white;
   -webkit-transition: transform .7s ease-in-out;
@@ -21,7 +21,7 @@ main {
 
 .sidebar {
   height: 100%;
-  width: 400px;
+  width: 200px;
   position: fixed;
   top: 0;
   z-index: 1;
@@ -31,10 +31,10 @@ main {
 
 .bar {
   display: block;
-  height: 10px;
+  height: 5px;
   width: 50px;
-  background-color: #2D3142;
-  margin: 20px auto;
+  background-color: #EF8354;
+  margin: 10px auto;
 }
 
 .button {
@@ -105,15 +105,15 @@ main {
 }
 
 .move-to-left {
-  -webkit-transform: translateX(-400px);
-  -moz-transform: translateX(-400px);
-  -ms-transform: translateX(-400px);
-  -o-transform: translateX(-400px);
-  transform: translateX(-400px);
+  -webkit-transform: translateX(-40px);
+  -moz-transform: translateX(-40px);
+  -ms-transform: translateX(-40px);
+  -o-transform: translateX(-40px);
+  transform: translateX(-40px);
 }
 
 nav {
-  padding-top: 30px;
+  padding-top: 40px;
 }
 
 .sidebar-list {
@@ -179,7 +179,7 @@ nav {
 .sidebar-anchor {
   color: #FFF;
   text-decoration: none;
-  font-size: 1.8em;
+  font-size: 1em;
   text-transform: uppercase;
   position: relative;
   padding-bottom: 7px;
@@ -211,7 +211,7 @@ nav {
 }
 
 .fa {
-  font-size: 1.4em;
+  font-size: 1em;
   color: #EF8354;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
@@ -251,4 +251,3 @@ nav {
     display: none;
   }
 }
-
