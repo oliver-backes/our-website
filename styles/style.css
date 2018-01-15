@@ -78,3 +78,12 @@ h1 {
 	font-family: "Source Code Pro", Consolas, monaco, monospace;
 
  }
+
+ p {line-height: 125%;
+ 	width: 90%;
+
+#bodytext {
+	font-size: 20px;
+	font-family: "Source Code Pro", Consolas, monaco, monospace;
+	width: 75%;
+}
