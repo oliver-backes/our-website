@@ -6,6 +6,7 @@
     <title>Tweet Tweet!</title>
     <link rel="stylesheet" media="all" href="styles/style.css"/>
     <link rel="stylesheet" media="all" href="menu-data/menu.css"/>
+    <link rel="icon" href="about_us.png">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 </head>
@@ -32,11 +33,11 @@
 
 
 <svg width="960" height="500"></svg>
-<script src="//d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
 
 </style>
 <body>
-<script src="//d3js.org/d3.v2.js"></script>
+<script src="https://d3js.org/d3.v2.js"></script>
 
 
 <div class="chart">
@@ -44,23 +45,17 @@
 
 <script>
 
-chart("vis1/data.csv", "orange");
+chart("vis1/data.csv", "blue");
 
 var datearray = [];
 var colorrange = [];
 
-
 function chart(csvpath, color) {
 
 if (color == "blue") {
-  colorrange = ["#045A8D", "#2B8CBE", "#74A9CF", "#A6BDDB", "#D0D1E6", "#F1EEF6"];
+  colorrange = ["#E74C3C", "#3498DB", "#229954"];
 }
-else if (color == "pink") {
-  colorrange = ["#980043", "#DD1C77", "#DF65B0", "#C994C7", "#D4B9DA", "#F1EEF6"];
-}
-else if (color == "orange") {
-  colorrange = ["#B30000", "#E34A33", "#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
-}
+
 strokecolor = colorrange[0];
 
 var format = d3.time.format("%m/%d/%y");
@@ -90,7 +85,7 @@ var z = d3.scale.ordinal()
 var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom")
-    .ticks(d3.time.weeks);
+    .ticks(d3.time.days);
 
 var yAxis = d3.svg.axis()
     .scale(y);
@@ -178,8 +173,8 @@ var graph = d3.csv(csvpath, function(data) {
       d3.select(this)
       .classed("hover", true)
       .attr("stroke", strokecolor)
-      .attr("stroke-width", "0.5px"), 
-      tooltip.html( "<p>" + d.key + "<br>" + pro + "</p>" ).style("visibility", "visible");
+      .attr("stroke-width", "1px"), 
+      tooltip.html( '<img src="about_us.png" style="width:80px; height:80px;" />' ).style("visibility", "visible");
       
     })
     .on("mouseout", function(d, i) {
@@ -189,20 +184,20 @@ var graph = d3.csv(csvpath, function(data) {
       .attr("opacity", "1");
       d3.select(this)
       .classed("hover", false)
-      .attr("stroke-width", "0px"), tooltip.html( "<p>" + d.key + "<br>" + pro + "</p>" ).style("visibility", "hidden");
+      .attr("stroke-width", "0px"), tooltip.html( '<img src="about_us.png" />').style("visibility", "hidden");
   })
     
   var vertical = d3.select(".chart")
         .append("div")
         .attr("class", "remove")
         .style("position", "absolute")
-        .style("z-index", "19")
+        .style("z-index", "10")
         .style("width", "1px")
-        .style("height", "380px")
-        .style("top", "10px")
-        .style("bottom", "30px")
+        .style("height", "875px")
+        .style("top", "20px")
+        .style("bottom", "10px")
         .style("left", "0px")
-        .style("background", "#fff");
+        .style("background", "#000");
 
   d3.select(".chart")
       .on("mousemove", function(){  
