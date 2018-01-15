@@ -10,11 +10,15 @@ body,{
 p {
   padding: 0 10px 10px 10px;
   margin-top: 0;
-  font-size: 13px;
+  font-size: 16px;
   max-width: 900px;
   font-family: "Source Code Pro", Consolas, monaco, monospace;
 }
+<<<<<<< HEAD
 h1, h2 {
+=======
+h1,h2,h3 {
+>>>>>>> 6d7de9d998a3a2415fd0cd424f909e954495b1f8
   font-family: "Source Code Pro", Consolas, monaco, monospace;
   padding: 0 0px 0px 10px;
 }
