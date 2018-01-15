@@ -60,9 +60,9 @@ strokecolor = colorrange[0];
 
 var format = d3.time.format("%m/%d/%y");
 
-var margin = {top: 20, right: 40, bottom: 30, left: 30};
+var margin = {top: 40, right: 80, bottom: 60, left: 60};
 var width = document.body.clientWidth - margin.left - margin.right;
-var height = 400 - margin.top - margin.bottom;
+var height = 550 - margin.top - margin.bottom;
 
 var tooltip = d3.select("body")
     .append("div")
@@ -85,7 +85,7 @@ var z = d3.scale.ordinal()
 var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom")
-    .ticks(d3.time.days);
+    .ticks(d3.time.weeks);
 
 var yAxis = d3.svg.axis()
     .scale(y);
@@ -174,7 +174,7 @@ var graph = d3.csv(csvpath, function(data) {
       .classed("hover", true)
       .attr("stroke", strokecolor)
       .attr("stroke-width", "1px"), 
-      tooltip.html( '<img src="about_us.png" style="width:80px; height:80px;" />' ).style("visibility", "visible");
+      tooltip.html( '<img src="tweets.jpg" style="width:1100x; height:300px;" />' ).style("visibility", "visible");
       
     })
     .on("mouseout", function(d, i) {
@@ -184,7 +184,7 @@ var graph = d3.csv(csvpath, function(data) {
       .attr("opacity", "1");
       d3.select(this)
       .classed("hover", false)
-      .attr("stroke-width", "0px"), tooltip.html( '<img src="about_us.png" />').style("visibility", "hidden");
+      .attr("stroke-width", "0px"), tooltip.html( '<img src="tweets.jpg" />').style("visibility", "hidden");
   })
     
   var vertical = d3.select(".chart")
@@ -193,9 +193,9 @@ var graph = d3.csv(csvpath, function(data) {
         .style("position", "absolute")
         .style("z-index", "10")
         .style("width", "1px")
-        .style("height", "875px")
-        .style("top", "20px")
-        .style("bottom", "10px")
+        .style("height", "500px")
+        .style("top", "500px")
+        .style("bottom", "30px")
         .style("left", "0px")
         .style("background", "#000");
 
@@ -227,6 +227,7 @@ var graph = d3.csv(csvpath, function(data) {
   <a href="styles/menu.css" class="ua" target="_blank">
     <i class="fa fa-user"></i>
   </a>
+  <p>          This visualisation shows the impact of President Trump tweeting about a story and how it relates to increased corresponding coverage in US mainstream media. For this project, three subjects that could be categorized as "fake news" were selected and coverage levels (using the mediacloud mainstrain US news database) were analyzed using the 30 days before and after a presidential tweet. For ease ov viewing, an arbitrary 60 day period was selected on the visualization to standardize the time frame. The tweet occurs approsimately halfway through the 60 day period in all cases. By hovering over the graphic, the selected tweets and thier date of publication will occur. The three subject areas covered wer: The "Deep State", The Clinton sale of Uranium to Russia, and The Obama Administration's alleged wiretapping of Trump Tower.</p>
 </main>
 
 <div class="sidebar">
