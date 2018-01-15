@@ -45,7 +45,7 @@
 
 <script>
 
-chart("vis1/data.csv", "orange");
+chart("vis1/data.csv", "blue");
 
 var datearray = [];
 var colorrange = [];
@@ -53,14 +53,9 @@ var colorrange = [];
 function chart(csvpath, color) {
 
 if (color == "blue") {
-  colorrange = ["#045A8D", "#2B8CBE", "#74A9CF", "#A6BDDB", "#D0D1E6", "#F1EEF6"];
+  colorrange = ["#E74C3C", "#3498DB", "#229954"];
 }
-else if (color == "pink") {
-  colorrange = ["#980043", "#DD1C77", "#DF65B0", "#C994C7", "#D4B9DA", "#F1EEF6"];
-}
-else if (color == "orange") {
-  colorrange = ["#B30000", "#E34A33", "#FC8D59", "#FDBB84", "#FDD49E", "#FEF0D9"];
-}
+
 strokecolor = colorrange[0];
 
 var format = d3.time.format("%m/%d/%y");
@@ -90,7 +85,7 @@ var z = d3.scale.ordinal()
 var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom")
-    .ticks(d3.time.weeks);
+    .ticks(d3.time.days);
 
 var yAxis = d3.svg.axis()
     .scale(y);
